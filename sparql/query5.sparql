@@ -1,0 +1,16 @@
+# vypis vsechna kola z databaze, ktera jsou velikosti M nebo L
+# serad je podle identifikatoru
+#
+prefix i: <http://fel.cvut.cz/rental/terms#>
+prefix r: <http://fel.cvut.cz/rental/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select *
+where 
+{
+    ?id rdf:type i:Bike ;
+        i:manufacturer ?brand ;
+        i:station [ i:city ?home_station ] ;
+        i:size ?size .
+    filter(?size = "M" || ?size = "L") 
+}
+order by asc(?b)

@@ -1,0 +1,134 @@
+@prefix r: <http://fel.cvut.cz/rental/> .
+@prefix i: <http://fel.cvut.cz/rental/terms#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+r:bike1
+    rdf:type i:Bike ;
+    i:manufacturer "Favorit" ;
+    i:station [ i:country "CZE" ; i:city "Prague" ; i:place "Florenc" ] ;
+    i:made [ i:month "01" ; i:year "2017" ; i:factory "Brno" ] ;
+    i:size "M" ;
+    i:gender "F", "Female" .
+
+r:bike2
+    rdf:type i:Bike ;
+    i:manufacturer "Author" ;
+    i:station [ i:country "CZE" ; i:city "Brno" ; i:place "Hlavní nádraží" ] ;
+    i:made [ i:month "01" ; i:year "2016" ; i:factory "Brno" ] ;
+    i:size "L" ;
+    i:gender "F", "Female" .
+
+r:bike3
+    rdf:type i:Bike ;
+    i:manufacturer "Author" ;
+    i:station [ i:country "CZE" ; i:city "Liberec" ; i:place "Homecredit aréna" ] ;
+    i:made [ i:month "01" ; i:year "2017" ; i:factory "Praha" ] ;
+    i:size "S" ;
+    i:gender "F", "Female" .
+
+r:bike4
+    rdf:type i:Bike ;
+    i:manufacturer "Favorit" ;
+    i:station [ i:country "CZE" ; i:city "Rumburk" ; i:place "Dymník" ] ;
+    i:made [ i:month "04" ; i:year "2017" ; i:factory "Praha" ] ;
+    i:size "M" ;
+    i:gender "M", "Male" .
+
+r:bike5
+    rdf:type i:Bike ;
+    i:manufacturer "Specialized" ;
+    i:station [ i:country "DEU" ; i:city "Dresden" ; i:place "Bahnhof" ] ;
+    i:made [ i:month "02" ; i:year "2018" ; i:factory "Brno" ] ;
+    i:size "L" ;
+    i:gender "M", "Male" .
+
+r:bike6
+    rdf:type i:Bike ;
+    i:manufacturer "RentBike" ;
+    i:station [ i:country "PLN" ; i:city "Wroclaw" ; i:place "Dvorek" ] ;
+    i:made [ i:month "09" ; i:year "2018" ; i:factory "Hradec Králové" ] ;
+    i:size "S" ;
+    i:gender "M", "Male" .
+
+r:user1
+    rdf:type i:User ;
+    i:nickname "elephant" ;
+    i:registration "2017-09-02" ;
+    i:email "elephant@seznam.cz" ; 
+    i:sex "M" .
+
+r:user2
+    rdf:type i:User ;
+    i:nickname "hippo" ;
+    i:registration "2017-10-13" ;
+    i:sex "F" .
+
+r:user3
+    rdf:type i:User ;
+    i:nickname "pepa" ;
+    i:registration "2018-01-15" ;
+    i:email "pepa1@fel.cvut.cz" ;
+    i:sex "M" .
+
+r:user4
+    rdf:type i:User ;
+    i:nickname "ema" ;
+    i:registration "2018-03-01" ;
+    i:sex "F" .
+
+r:ride01
+    rdf:type i:Ride ;
+    i:date "2017-12-31" ;
+    i:bike r:bike1 ;
+    i:user r:user2 ;
+    i:trace [ i:duration 45 ; i:distance 12 ; i:name "My ride to office" ] .
+
+r:ride02
+    rdf:type i:Ride ;
+    i:date "2017-01-04" ;
+    i:bike r:bike2 ;
+    i:user r:user3 ;
+    i:trace [ i:duration 34 ; i:distance 4 ; i:name "My favourite ride" ] .
+
+r:ride03
+    rdf:type i:Ride ;
+    i:date "2017-02-15" ;
+    i:bike r:bike4 ;
+    i:user r:user1 ;
+    i:trace [ i:duration 15 ; i:distance 2 ; i:name "Funny ride" ] .
+
+r:ride04
+    rdf:type i:Ride ;
+    i:date "2017-03-29" ;
+    i:bike r:bike3 ;
+    i:user r:user2 ;
+    i:trace [ i:duration 95 ; i:distance 42 ; i:name "Ride my bike" ] .
+
+r:ride05
+    rdf:type i:Ride ;
+    i:date "2017-03-30" ;
+    i:bike r:bike1 ;
+    i:user r:user4 ;
+    i:trace [ i:duration 85 ; i:distance 38 ; i:name "Tralala" ] .
+
+r:ride06
+    rdf:type i:Ride ;
+    i:date "2017-04-01" ;
+    i:bike r:bike3 ;
+    i:user r:user2 ;
+    i:trace [ i:duration 10 ; i:distance 20 ; i:name "Nightrider" ] .
+
+r:ride07
+    rdf:type i:Ride ;
+    i:date "2018-12-31" ;
+    i:bike r:bike5 ;
+    i:user r:user1 ;
+    i:trace [ i:duration 110 ; i:distance 90 ; i:name "My ride to office" ] .
+
+r:ride08
+    rdf:type i:Ride ;
+    i:date "2018-10-11" ;
+    i:bike r:bike2 ;
+    i:user r:user4 ;
+    i:trace [ i:duration 66 ; i:distance 27 ],
+            [ i:duration 56 ; i:distance 22 ] .

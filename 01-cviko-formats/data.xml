@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<friends>
+	<users>
+		<user id="u121" age="35">
+			<name>Peter</name>
+			<email>peter@friends.cz</email>
+			<friend>u654</friend>
+			<friend>u357</friend>
+		</user>
+		<user id="u654" age="25">
+			<name>Rachel</name>
+			<friend>u121</friend>
+			<friend>u357</friend>
+		</user>
+		<user id="u357" age="30">
+			<name>John</name>
+			<emails>
+				<email>john@friends.cz</email>
+				<email>u357@users.friends.cz</email>
+			</emails>
+			<phone>+420 777 555 111</phone>
+			<friend>u121</friend>
+			<friend>u654</friend>
+			<friend>u987</friend>
+		</user>
+	</users>
+	<groups>
+		<group id="g11" name="Photographers">
+			<group id="g15" name="Landscape Photographers">
+				<member>u121</member>
+				<member>u357</member>
+			</group>
+		</group>
+		<group id="g24" name="Librarians">
+			<member>u121</member>
+		</group>
+	</groups>
+	<posts>
+		<post id="p530035" user="u121">
+			<datetime>2018-10-08 09:30:00</datetime>
+			<title>New trends in libraries</title>
+		</post>
+		<post id="p530045" user="u121">
+			<datetime>2018-10-08 09:45:00</datetime>
+			<title>Great photos of my family</title>
+		</post>
+	</posts>
+</friends>

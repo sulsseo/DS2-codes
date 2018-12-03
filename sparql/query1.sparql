@@ -1,0 +1,16 @@
+# vrat vsechny informace o vsech uzivatelich (nick, datum registrace, mail)
+# mail pouze v pripade, ze ho uzivatel ma
+# tabulka je vzestupne serazena podle data registrace
+
+prefix i: <http://fel.cvut.cz/rental/terms#>
+prefix r: <http://fel.cvut.cz/rental/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?nick ?registration ?mail
+where 
+{
+	?user rdf:type i:User ;
+		i:nickname ?nick ;
+		i:registration ?registration .
+	optional { ?user i:email ?mail . }
+}
+order by asc(?registration) 

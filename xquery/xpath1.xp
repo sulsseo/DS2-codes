@@ -1,0 +1,3 @@
+(: vybere vsechny znacky kol, ktere byli pouzivane po danem dni :)
+
+//bike[//ride[date > "2017-04-01"]/bike = @number]/manufacturer/text()

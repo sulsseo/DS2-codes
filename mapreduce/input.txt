@@ -1,0 +1,10 @@
+Bike01;Favorit;CZE;Praha;2017-01-03;M;F;
+Bike02;Author;CZE;Liberec;2017-03-09;L;M;
+Bike03;Merida;CZE;Karlovy Vary;2016-04-11;S;F;
+Bike04;Author;DEU;Dresden;2016-01-20;M;M;
+Bike05;KTM;CZE;Hradec Králové;2015-11-11;XL;M;
+Bike06;Merida;DEU;Hamburg;2018-09-02;L;F;
+Bike07;Favorit;CZE;Brno;2018-05-01;M;F;
+Bike08;KTM;SVK;Bratislava;2015-12-23;S;M;
+Bike09;Scott;SVK;Košice;2016-03-08;XS;F;
+Bike10;Author;SVK;Martin;2017-02-15;M;M;

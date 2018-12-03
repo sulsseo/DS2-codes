@@ -1,0 +1,16 @@
+# vypise kola, ktera vyhovuji tomu, ze patri pod ceskou pobocku nebo byla vyrobena pred rokem 2018
+#
+prefix i: <http://fel.cvut.cz/rental/terms#>
+prefix r: <http://fel.cvut.cz/rental/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?bike ?country ?place ?year
+where 
+{
+    {
+        ?bike rdf:type i:Bike ; i:made [ i:year ?year ] ; i:station [ i:country ?country ; i:place ?place ] .
+        filter(?c = "CZE")
+    } union {
+        ?bike rdf:type i:Bike ; i:made [ i:year ?year ; i:month ?month ] ; i:station [ i:country ?country ; i:place ?place ] .
+        filter(?year < "2018") 
+    }
+}

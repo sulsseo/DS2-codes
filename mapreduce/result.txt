@@ -1,0 +1,52 @@
+01	2
+012	1
+02	1
+03	2
+04	1
+05	1
+09	1
+11	1
+2015	2
+2016	3
+2017	3
+2018	2
+Author	3
+Bike Industry	3
+Bike01	1
+Bike02	1
+Bike03	1
+Bike04	1
+Bike05	1
+Bike06	1
+Bike07	1
+Bike08	1
+Bike09	1
+Bike10	1
+Bratislava	1
+Brno	5
+CZE	5
+DEU	2
+Dresden	1
+F	5
+Favorit	2
+Hamburg	1
+Hradec Králové	1
+KTM	2
+Karlovy Vary	1
+Kolo obchod	2
+Kolo.cz	2
+Košice	1
+L	2
+Liberec	1
+M	9
+Martin	1
+Merida	2
+Ostrava	2
+Pelhřimov	2
+Praha	3
+S	2
+SVK	3
+Scott	1
+Tovarna	2
+XL	1
+XS	1

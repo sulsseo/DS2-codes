@@ -1,0 +1,163 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<rental>
+
+	<bikes>
+		<bike number="BK01">
+			<manufacturer>Favorit</manufacturer>
+			<station country="CZE" city="Prague">Florenc</station>
+			<made>
+				<year>2017</year>
+				<month>01</month>
+				<factory name="Bike Industry">Brno</factory>
+			</made>
+			<size>M</size>
+			<gender>F</gender>
+		</bike>
+
+		<bike number="BK02">
+			<manufacturer>Author</manufacturer>
+			<station country="CZE" city="Brno">Hlavní nádraží</station>
+			<made>
+				<year>2016</year>
+				<month>01</month>
+				<factory name="Bike Industry">Brno</factory>
+			</made>
+			<size>L</size>
+			<gender>F</gender>
+		</bike>
+
+		<bike number="BK03">
+			<manufacturer>Author</manufacturer>
+			<station country="CZE" city="Liberec">Homecredit aréna</station>
+			<made>
+				<year>2017</year>
+				<month>01</month>
+				<factory name="Kolo.cz">Praha</factory>
+			</made>
+			<size>S</size>
+			<gender>F</gender>
+		</bike>
+
+		<bike number="BK04">
+			<manufacturer>Favorit</manufacturer>
+			<station country="CZE" city="Rumburk">Dymník</station>
+			<made>
+				<year>2017</year>
+				<month>04</month>
+				<factory name="Kolo.cz">Praha</factory>
+			</made>
+			<size>M</size>
+			<gender>M</gender>
+		</bike>
+
+		<bike number="BK05">
+			<manufacturer>Specialized</manufacturer>
+			<station country="DEU" city="Dresden">Bahnhof</station>
+			<made>
+				<year>2018</year>
+				<month>02</month>
+				<factory name="Bike Industry">Brno</factory>
+			</made>
+			<size>L</size>
+			<gender>M</gender>
+		</bike>
+	</bikes>
+
+	<users>
+		<user id="U01">
+			<nickname>elephant</nickname>
+			<registration>2017-09-02</registration>
+			<sex>M</sex>
+		</user>
+
+		<user id="U02">
+			<nickname>hippo</nickname>
+			<registration>2017-10-13</registration>
+			<sex>F</sex>
+		</user>
+
+		<user id="U03">
+			<nickname>pepa</nickname>
+			<registration>2018-01-15</registration>
+			<sex>M</sex>
+		</user>
+
+		<user id="U04">
+			<nickname>ema</nickname>
+			<registration>2018-03-01</registration>
+			<sex>F</sex>
+		</user>
+	</users>
+
+	<rides>
+		<ride number="R001">
+			<date>2017-12-31</date>
+			<bike>BK01</bike>
+			<user>U02</user>
+			<traces>
+				<trace duration="45" distance="12">
+					<name>My ride to office</name>
+				</trace>
+			</traces>
+		</ride>
+		<ride number="R002">
+			<date>2017-01-04</date>
+			<bike>BK02</bike>
+			<user>U03</user>
+			<traces>
+				<trace duration="34" distance="4">
+					<name>My favourite ride</name>
+				</trace>
+			</traces>
+		</ride>
+		<ride number="R003">
+			<date>2017-02-15</date>
+			<bike>BK04</bike>
+			<user>U01</user>
+			<traces>
+				<trace duration="15" distance="2">Funny ride</trace>
+			</traces>
+		</ride>
+		<ride number="R004">
+			<date>2017-03-29</date>
+			<bike>BK03</bike>
+			<user>U02</user>
+			<traces>
+				<trace duration="95" distance="42">Ride my bike</trace>
+			</traces>
+		</ride>
+		<ride number="R005">
+			<date>2017-03-30</date>
+			<bike>BK01</bike>
+			<user>U04</user>
+			<traces>
+				<trace duration="85" distance="38">Tralala</trace>
+			</traces>
+		</ride>
+		<ride number="R006">
+			<date>2017-04-01</date>
+			<bike>BK03</bike>
+			<user>U02</user>
+			<traces>
+				<trace duration="10" distance="20">Nightrider</trace>
+			</traces>
+		</ride>
+		<ride number="R007">
+			<date>2018-12-31</date>
+			<bike>BK05</bike>
+			<user>U01</user>
+			<traces>
+				<trace duration="110" distance="90">My ride to office</trace>
+			</traces>
+		</ride>
+		<ride number="R008">
+			<date>2018-10-11</date>
+			<bike>BK02</bike>
+			<user>U04</user>
+			<traces>
+				<trace duration="66" distance="27"></trace>
+			</traces>
+		</ride>
+	</rides>
+
+</rental>

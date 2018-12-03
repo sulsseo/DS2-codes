@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airport>
+
+	<lines>
+	
+		<line number="EK140" codeshare="QF8140">
+			<airline>Emirates Airlines</airline>
+			<departure>
+				<airport code="PRG" country="CZE" city="Prague">Václav Havel Airport</airport>
+				<time>13:55</time>
+			</departure>
+			<arrival>
+				<airport code="DXB" country="UAE" city="Dubai">Dubai International Airport</airport>
+				<time>23:50</time>
+			</arrival>
+			<duration>355</duration>
+			<distance>4469</distance>
+		</line>
+		
+		<line number="LH1691" codeshare="AC9317 UA9251">
+			<airline>Lufthansa</airline>
+			<departure>
+				<airport code="PRG" country="CZE" city="Prague">Václav Havel Airport</airport>
+				<time>13:40</time>
+			</departure>
+			<arrival>
+				<airport code="MUC" country="DEU" city="Munich">Franz Josef Strauss Airport</airport>
+				<time>14:30</time>
+			</arrival>
+			<duration>50</duration>
+			<distance>266</distance>
+		</line>
+		
+		<line number="SK1768">
+			<airline>SAS Scandinavian Airlines</airline>
+			<departure>
+				<airport code="PRG" country="CZE" city="Prague">Václav Havel Airport</airport>
+				<time>14:05</time>
+			</departure>
+			<arrival>
+				<airport code="ARN" country="SWE" city="Stockholm">Arlanda Airport</airport>
+				<time>15:55</time>
+			</arrival>
+			<duration>110</duration>
+			<distance>1090</distance>
+		</line>
+		
+		<line number="LH1397" codeshare="AC9289 LG1482 NH6198 UA9316">
+			<airline>Lufthansa</airline>
+			<departure>
+				<airport code="PRG" country="CZE" city="Prague">Václav Havel Airport</airport>
+				<time>14:15</time>
+			</departure>
+			<arrival>
+				<airport code="FRA" country="DEU" city="Frankfurt">Frankfurt Main Airport</airport>
+				<time>15:20</time>
+			</arrival>
+			<duration>65</duration>
+			<distance>407</distance>
+		</line>
+		
+	</lines>
+
+	<flights>
+	
+		<flight date="2017-10-12">
+			<line>EK140</line>
+			<aircraft registration="A6-EOP" model="Airbus A380-861" seats="517"/>
+			<tickets>
+				<ticket seat="72A" class="Y">Ivan Trojan</ticket>
+				<ticket seat="72C" class="Y">Jiří Macháček</ticket>
+				<ticket seat="72B" class="Y">Jitka Schneiderová</ticket>
+			</tickets>
+		</flight>
+		
+		<flight date="2017-10-13">
+			<line>LH1691</line>
+			<aircraft registration="D-AILR" model="Airbus A319-114" seats="90"/>
+		</flight>
+		
+		<flight date="2017-10-13">
+			<line>EK140</line>
+			<aircraft registration="A6-EOQ" model="Airbus A380-861" seats="517"/>
+			<tickets>
+				<ticket seat="68J" class="Y">Anna Geislerová</ticket>
+				<ticket seat="68A" class="Y">Tatiana Vilhelmová</ticket>
+				<ticket seat="11A" class="F">Pavel Liška</ticket>
+			</tickets>
+		</flight>
+		
+		<flight date="2017-10-14">
+			<line>EK140</line>
+			<aircraft registration="A6-EOP" model="Airbus A380-861" seats="517"/>
+		</flight>
+		
+		<flight date="2017-10-15">
+			<line>SK1768</line>
+			<aircraft registration="LN-RNU" model="Boeing 737-783" seats="141"/>
+		</flight>
+		
+		<flight date="2017-10-15">
+			<line>LH1397</line>
+			<aircraft registration="D-AIRK" model="Airbus A321-131" seats="200"/>
+		</flight>
+		
+		<flight date="2017-10-18">
+			<line>EK140</line>
+			<tickets>
+				<ticket seat="30A" class="C">Zdeněk Svěrák</ticket>
+				<ticket seat="10A" class="F">Jiří Menzel</ticket>
+			</tickets>
+		</flight>
+		
+		<flight date="2017-10-18">
+			<line>LH1691</line>
+		</flight>
+		
+		<flight date="2017-10-18">
+			<line>LH1397</line>
+		</flight>
+	
+	</flights>
+
+</airport>

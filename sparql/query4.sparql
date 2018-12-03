@@ -1,0 +1,17 @@
+# najdi jizdy, ktere neobsahuji alespon jednu jizdu, ktera by byla v delce vetsi nez hodina
+# nebo vzdalenosti delsi nez 80 km
+# serad je podle identifikatoru jizdy
+#
+prefix i: <http://fel.cvut.cz/rental/terms#>
+prefix r: <http://fel.cvut.cz/rental/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?r ?date
+where 
+{
+    ?r rdf:type i:Ride ; i:date ?date ;  i:trace [ i:duration ?dur ; i:distance ?dist ] .
+    minus {
+        ?r i:trace [ i:duration ?dur ; i:distance ?dist] .
+        filter((?dur > 60) || (?dist > 80))
+    }
+}
+order by asc(?r)

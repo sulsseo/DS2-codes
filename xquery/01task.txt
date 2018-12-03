@@ -1,0 +1,67 @@
+(: ---------- XPath ---------- :)
+
+(: vybere vsechny znacky kol, ktere byli pouzivane po danem dni :)
+
+//bike[//ride[date > "2017-04-01"]/bike = @number]/manufacturer/text()
+
+(: vybere vyrobce, od ktereho bylo zakoupene prvni kolo v roce 2017 :)
+
+//bike[made/year=2017][position()=1]/made/factory
+
+(: ---------- XQuery ---------- :)
+
+(: vytvori tabulku se vsemy jizdami srovnane vzestupne podle data :)
+
+<table>
+	<tr>
+    	<th>Date</th>
+        <th>Duration (km)</th>
+        <th>Distance</th>
+        <th>Name</th>
+    </tr>
+    {
+    for $r in /rental/rides/ride
+	let $d := $r/date
+    order by $d ascending
+	return 
+    <tr>
+    	<td>{data($r/date)}</td>
+        <td>{data($r/traces/trace/@duration)}</td>
+        <td>{data($r/traces/trace/@distance)}</td>
+        <td>{
+        	if (data($r/traces/trace)) 
+            then data($r/traces/trace)
+            else "empty"
+        }</td>
+    </tr>
+    }
+</table>
+
+(: vypise vsechny jizdy, jejichz soucasti byla nejaka trasa delsi nez 50 minut cesty :) 
+
+for $r in //ride
+where
+	some $t in $r/traces/trace/@duration satisfies $t > 50
+return $r
+
+(: vypise stastistiky o jizdach, konkretne delku a jmeno u tras, ktere jsou nadprumerne dlouhe. :)
+
+element statistics {
+let $t := //ride/traces/trace/@distance
+let $a := avg($t)
+for $r in //ride
+where 
+	every $d in $r/traces/trace/@distance satisfies $d > $a
+return 
+    	element traces {
+        	element trace {
+            	element name {
+                	$r/traces/trace/text()
+                },
+                
+                element distance {
+                	data($r/traces/trace/@distance)
+                }
+            }
+        }
+    }

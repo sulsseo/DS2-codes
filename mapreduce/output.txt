@@ -1,0 +1,5 @@
+Author	754.3333
+Favorit	432.5
+KTM	1072.0
+Merida	504.0
+Scott	975.0

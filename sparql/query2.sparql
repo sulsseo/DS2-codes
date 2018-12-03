@@ -1,0 +1,14 @@
+# vraci informace o tom  kolik km najezdila kola jakych vyrobcu
+#
+prefix i: <http://fel.cvut.cz/rental/terms#>
+prefix r: <http://fel.cvut.cz/rental/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?bike (sum(?d) as ?distance)
+where 
+{
+    ?b rdf:type i:Bike ; 
+       i:manufacturer ?bike .
+    ?r i:bike ?b;
+       i:trace [ i:distance ?d ] .
+}
+group by ?bike
