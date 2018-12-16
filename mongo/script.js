@@ -162,8 +162,8 @@ db.rental.find({ "traces.duration": { $lte: 15 } }).forEach(printjson);
 
 // -----------------------------------------------------------------------------
 
-// ze vsech pujcek emituje kola a delku jejich zapujceni
-// vysledkem je celkova doba zapujceni pro kazde kolo
+// ze vsech pujcek emituje id kol a delky jejich zapujceni v kazde jizde
+// vysledkem je prumerna doba zapujceni pro kazde kolo
 print("mapreduce job")
 db.rental.mapReduce(
     function() {
@@ -175,7 +175,15 @@ db.rental.mapReduce(
         }
     },
     function(key, values) {
-        return Array.sum(values);
+        var sum = 0;
+        var count = 0;
+        values.forEach(
+            function(value) {
+                sum += value;
+                count++;
+            }
+        );
+        return sum/count;
     },
     {   
         out: { inline: 1 } 
