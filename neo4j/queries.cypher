@@ -14,7 +14,7 @@ CREATE
 (u1:USER {
     id: "user1", nickname: "elephant", registration: "2017-11-27", sex: "M"}),
 (u2:USER {
-    id: "user2", nickname: "hippo", registration: "2017-10-13", sex: "F"}),
+    id: "user2", nickname: "hippo", registration: "2017-10-13"}),
 (u3:USER {
     id: "user3", nickname: "pepa", registration: "2018-01-15", sex: "M"}),
 (u4:USER {
@@ -51,6 +51,8 @@ CREATE
 (e2)-[re3:REPAIR { date: "2018-11-11", type: "partial" }]->(b1),
 (e2)-[re4:REPAIR { date: "2017-12-10", type: "complete" }]->(b3),
 (e1)-[re5:REPAIR { date: "2018-05-07", type: "partial" }]->(b6),
+(e2)-[re6:REPAIR { type: "partial" }]->(b3),
+(e1)-[re7:REPAIR { type: "partial" }]->(b6),
 (u1)-[k1:KNOWS]->(e1),
 (u4)-[k2:KNOWS]->(e1),
 (u2)-[k3:KNOWS]->(e2),
@@ -59,6 +61,28 @@ CREATE
 // -----------------------------------------------------------------------------
 
 // list vsech uzivatel z databaze
-MATCH (n:USER) 
-RETURN n.id, n.nickname;
+match (n:USER) 
+return n.id as `ID`, n.nickname as `nickname`, n.registration as `registration date`
+order by n.nickname;
 
+// vypise kdy a jak bylo ktere z kol servisovane, pokud nebylo nikdy vraci null
+match (b:BIKE)
+optional match ()-[re:REPAIR]->(b)
+return distinct b.id as `Bike ID`, re.date as `Repair date`, re.type as `Repair type`;
+
+// vypocita prumernou delku jizdy ze vsech jizd za rok 2017
+match ()-[r:RENTAL]->()
+ where r.date > "2017-01-01"
+return avg(r.distance);
+
+// vrati kolo, ktere nejvic casu jezdilo
+match ()-[r:RENTAL]->(b:BIKE)
+ with b, sum(r.duration) as duration
+return b.id as `ID`, duration
+ order by duration desc
+ limit 1;
+
+// vraci kola, kde o kazdem jednotlivem muzeme rict, ze ho opravoval znamy uzivatele, ktery si kolo nekdy pujcil
+match (e:EMPLOYEE)-[:REPAIR]->(b:BIKE)<-[:RENTAL]-(u:USER)
+ where (u)-[:KNOWS]->(e)
+return b.id as `ID`, b.manufacturer as `manufacturer`, b.station as `station`;
