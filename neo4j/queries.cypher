@@ -53,14 +53,14 @@ CREATE
 (e1)-[re5:REPAIR { date: "2018-05-07", type: "partial" }]->(b6),
 (e2)-[re6:REPAIR { type: "partial" }]->(b3),
 (e1)-[re7:REPAIR { type: "partial" }]->(b6),
-(u1)-[k1:KNOWS]->(e1),
-(u4)-[k2:KNOWS]->(e1),
-(u2)-[k3:KNOWS]->(e2),
-(u3)-[k4:KNOWS]->(e1);
+(u1)-[k1:KNOWS { since: "2010-10-10" }]->(e1),
+(u4)-[k2:KNOWS { since: "2002-11-28" }]->(e1),
+(u2)-[k3:KNOWS { since: "2004-01-08" }]->(e2),
+(u3)-[k4:KNOWS { since: "2011-03-12" }]->(e1);
 
 // -----------------------------------------------------------------------------
 
-// list vsech uzivatel z databaze
+// list vsech uzivatel z databaze serazeno podle nickname
 match (n:USER) 
 return n.id as `ID`, n.nickname as `nickname`, n.registration as `registration date`
 order by n.nickname;

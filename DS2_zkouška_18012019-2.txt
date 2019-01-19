@@ -1,0 +1,88 @@
+﻿== Teoretická ==
+Každé trvzení ohodnotit true - false
+XML
+Neprázdný element může obsahovat text, podelemety a mix
+Dobře strukturované XML má ve hlavičce alespoň verzi
+Prázdný element nemůže mít atributy
+Hodnoty atributů nemusí být odděleny uvozovkami pokud neobsahují mezeru
+Atributy mohou být množina unikátních hodnot a klíčů
+
+SPARQL
+Každý z trojice subjekt, predikát objekt musí být vy výrazu bidnut
+Celou trojici lze nahradit predicate nebo object listem, ale nejde to blank nodem []
+Vzor Optional je ekvivalentní levému vnějšímu joinu
+Vzor Minus odebere takové výsledky levého operátoru, které nejsou kompatibilní alespoň s alespoň jedním výsledkem pravého operátoru
+Filtr podmínky v group vzoru se vyhodnocují v pořadí deklarace
+
+MapReduce
+Map funkce musí pro jednu várku dat emitovat stejné klíče
+Sorter řadí páry klíč, hodnota podle hodnoty
+Combiner musí být komutativní a né asociativní
+Partitiner přirazuje dočasným párům adresy a posílá je na konkrétní reduceri
+Reducer musí zredukoval všechno na jednu hodnotu
+
+Cluster
+Replikační faktor musí být stejně velký počtu nodů
+V p2p architektuře mají všechny nody stejná práva a povinnosti
+V master slave architektuře může probíhat jen jeden zápis zároveň
+V master slave architektuře jde dělat čtení a zápis z libovolného nodu
+Replikace znamená ukládání replik dat do více nodů
+
+RiakKV search 2.0
+Použitý etractor je určen specifickou kapsou
+Globáně indexované věci mohou být sdílené pro více zdrojů
+Extractor zvládá XML elementy ale ne atributy
+Solr doukemnt v sobě obsahuje indexaci položek
+Search 2.0 probíhá tak, že se z riak objektů udělá pomocí extractoru solr dokumemnt
+
+Cassandra
+Mapa má unikátní klíče
+Text může být uvozen jednoduchými i složitými uvozovkama
+Set<text,int> označuje sloupeček, kam jde dávat množinu čísel nebo textu
+Není povoleno mít pairy a vnořené kolekce v kolekcích ani ve frozen režimu
+List primitiv jsou primitiva uzavřena do [] oddělena ,
+
+MongoDB
+Replace přejmenovává jeden i více fieldů
+V update se změní maximálně jeden záznam, pokud není nastaveno multi: true
+V update můhou být zároveň jak operátory tak dokument
+Pokud je v update dokument, tak se vyhovující dokument celý změní za ten v update, jen id zůstané staré
+Push operace vrátí chybu, pokud přidáváme do pole, co neexistuje
+
+Neo4j traversal framework
+NODE_GLOBAL je striktnější jak NODE_PATH
+Traverser může projít všechny hrany v cestě (relations)
+Správně definovaný traverser obsahuje alespoň jeden expander
+Evaluator je aplikován i na počáteční node
+Pokud máme více evalutárů, tak node bude obsažen ve výsledku pouze tehdy, pokud se všechny evalotáry shodnou na includnutí
+
+Grafové finty
+Indice matrix je NxN velká a N je počet vrcholů
+Adjency matrix má v i,j 1 nebo 0, kdy tam je neorientovaná hrana
+Adjency matrix má velikost počet hran nadruhou
+Laplace páry jsou komprimované nebo seřazené
+Indice matrix je vhodná na hypergrafy kde jsou více jak 2 paralelní hrany
+
+NoSQL optimalizace
+Na čím více zpráv data rozdělíme, tím pomaleji bude probíhat zpracování
+Co říká alb někoho zákon
+Co říká imb někoho zákon
+Pomocí vzorce se zlomkem je něco efektivní
+Značí vzorec 2bn něco chytrého
+
+== Praktická ==
+Data:
+<banka>
+	1- N krát <client name, balance a optinal age>
+		0-N krát <karta expirace, datum>		
+		0-N krát <účet typ>
+	</client>
+</banka>
+
+XQuery - Udělat XHTML tabulku s hlavičkou, která bude jen jednou. Jeden řádek pro každého klienta. Vypsat jen klienty co nemají personal účet. U každého klienta poslední kartu, když žádnou nemá tak None, jméno a počet účtů. Klienty seřadit sestupně podle jména a vzestupně balance.
+SPARQL - Stejná data. Vylovit u každého klienta, co nemá personal účet jméno, balanci a i věk a expiraci karty, s tím, že tuhle atributy nemusí mít. Seřadit výsledné klienty sestupně podle jména a vzestupně balance
+Neo4j - Stejná data. Udělat průměrnou balance nad všemi klienty. Pak vypsat klienty, co nemají personal účet a balance menší než průměr. U takových klientů vypsat expiraci karty, jestli nějakou mají a jméno, balance každého klienta.
+
+MongoDB
+data: 1 - N krát {_id: blabla, name: "text", balance: číslo, age: číslo, 0 - 1 krát cards: [1 - N elementů {name: "blabla", expires: "zasBlabla"}], 0 - 1 krát accounts: [foo, bar]}
+Vybrat klienty mezi 30-40 lety včetně, co mají alespoň jeden účet a jejich karta má jméno MS04 a expiraci 2018/01. u každého takového klienta vypsat jen jméno a balance klienta a pouze poslední dvě karty. Seřadit sestupně podle jména a vzetupně podle balance.
